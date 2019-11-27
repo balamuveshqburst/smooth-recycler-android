@@ -9,12 +9,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.balamuvesh.smoothrecyclerview.R
 import com.balamuvesh.smoothrecyclerview.model.ChildModel
 import com.balamuvesh.smoothrecyclerview.model.ParentModel
+import com.balamuvesh.smoothrecyclerview.utils.CustomLinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.parent_recycler.view.*
 
 class ParentAdapter(private val parent: ParentModel) : RecyclerView.Adapter<ParentAdapter.ViewHolder>() {
-    private val viewPool = RecyclerView.RecycledViewPool()
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.parent_recycler, parent, false)
         return ViewHolder(view)
@@ -33,7 +32,7 @@ class ParentAdapter(private val parent: ParentModel) : RecyclerView.Adapter<Pare
             val title = "${parent.title} $position"
             itemView.parent_title.text = title
             itemView.child_recycler_view.apply {
-                layoutManager =  LinearLayoutManager(itemView.context, RecyclerView.HORIZONTAL, false)
+                layoutManager =  CustomLinearLayoutManager(itemView.context, RecyclerView.HORIZONTAL)
                 adapter = ChildAdapter(ChildModel())
 
             }

@@ -2,13 +2,17 @@ package com.balamuvesh.smoothrecyclerview
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
+import android.util.Log
+import android.view.MotionEvent
 import com.balamuvesh.smoothrecyclerview.adapters.ParentAdapter
 import com.balamuvesh.smoothrecyclerview.model.ParentModel
+import com.balamuvesh.smoothrecyclerview.utils.CustomLinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.parent_recycler.*
+
+private const val TAG = "MAIN_ACTIVITY"
 
 class MainActivity : AppCompatActivity() {
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,8 +22,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun recyclerviewInit() {
         rv_parent.apply {
-            layoutManager = LinearLayoutManager(context)
+            layoutManager = CustomLinearLayoutManager(context)
             adapter = ParentAdapter(ParentModel())
         }
     }
+
 }

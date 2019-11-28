@@ -32,7 +32,7 @@ class XScrollDetector : GestureDetector.SimpleOnGestureListener() {
         distanceY: Float
     ): Boolean {
         Log.d(TAG, "Angle = ${atan((distanceY/distanceX))*57.2958}")
-        return abs(distanceY) < abs(distanceX)
+        return abs(distanceY) > abs(distanceX)
     }
 
 }

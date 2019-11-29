@@ -1,4 +1,4 @@
-#Experimental repo to test properties of RecyclerViews:
+# Experimental repo to test properties of RecyclerViews:
 
 ## **Properties being tested:**
 1. Scroll functionality of nested RVs
